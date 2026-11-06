@@ -1,0 +1,26 @@
+{
+  "baseline_random_test": {
+    "accuracy": 0.5,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+  },
+  "tree_random_train": {
+    "accuracy": 0.7041666666666667,
+    "precision": 0.6991869918699187,
+    "recall": 0.7166666666666667,
+    "f1": 0.7078189300411523
+  },
+  "tree_random_test": {
+    "accuracy": 0.705,
+    "precision": 0.6951142131979695,
+    "recall": 0.7303333333333333,
+    "f1": 0.7122886866059818
+  },
+  "tree_unseen_hostname_test": {
+    "accuracy": 0.6838222967309304,
+    "precision": 0.6739130434782609,
+    "recall": 0.7153846153846154,
+    "f1": 0.6940298507462687
+  }
+}

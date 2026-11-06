@@ -1,0 +1,11 @@
+url,label,prediction,error_type
+kctribe.com/index.htm,0,1,false_positive
+nicoledefalco.wordpress.com/,0,1,false_positive
+escolaabelhinhasapeca.com.br/blog/wp-content/languages/asb/index.php,0,1,false_positive
+spu.edu/depts/__athletics/w-basketball/history.htm,0,1,false_positive
+sammyokpro.blogspot.com/,0,1,false_positive
+http://www.79181531227.com,1,0,false_negative
+ag.ansc.purdue.edu/sheep/ansc442/Semprojs/2002/wool/index.htm,1,0,false_negative
+www.linuxfocus.org/English/July2000/article160.shtml,1,0,false_negative
+http://mangaloretours.com/wp-content/plugins/contact-form-7/images/service-icons/merotomy/reddingite_antimetrical.html,1,0,false_negative
+https://cloudflare-ipfs.com/ipfs/bafybeide7wd73e7bn26m7l6xpinh54q5si4pgzjyedohnrfbscchaqolnq/,1,0,false_negative

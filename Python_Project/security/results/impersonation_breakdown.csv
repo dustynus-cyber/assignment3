@@ -1,0 +1,5 @@
+pattern,count,model_recall,defense_recall,brand_visible_recall
+concatenation,24,0.0,0.0,1.0
+hyphen,24,0.08333333333333333,1.0,1.0
+punycode,23,1.0,1.0,1.0
+typosquat,24,0.0,1.0,0.875

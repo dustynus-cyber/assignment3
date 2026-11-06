@@ -1,0 +1,34 @@
+{
+  "sources": {
+    "kaggle": {
+      "url": "https://www.kaggle.com/api/v1/datasets/download/sid321axn/malicious-urls-dataset",
+      "original_rows": 651191,
+      "archive_sha256": "8d085ce1fb4e462111e233a6a302970f699264ae129e3f6e5ac0496f5b69ca79"
+    },
+    "uci": {
+      "url": "https://archive.ics.uci.edu/static/public/967/phiusiil+phishing+url+dataset.zip",
+      "original_rows": 235795,
+      "archive_sha256": "0a639fd03aea6308c5b1c10c92aa23c2ce1505447a9137271865cd0badc9a59a"
+    }
+  },
+  "prepared_date": "2026-10-10",
+  "conflicting_normalized_urls_removed": 4070,
+  "clean_counts_before_sampling": {
+    "kaggle_0": 422027,
+    "kaggle_1": 87409,
+    "uci_0": 133630,
+    "uci_1": 96863
+  },
+  "selected_counts": {
+    "kaggle_0": 10000,
+    "kaggle_1": 10000,
+    "uci_0": 5000,
+    "uci_1": 5000
+  },
+  "seed": 42,
+  "label_mapping": {
+    "benign": 0,
+    "phishing": 1
+  },
+  "normalization": "Ignore http/https, leading www and trailing path slashes. Preserve path case and query."
+}

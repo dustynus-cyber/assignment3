@@ -1,0 +1,39 @@
+{
+  "google.com": {
+    "urls": [
+      "google.com",
+      "https://google.com",
+      "https://www.google.com",
+      "http://www.google.com/"
+    ],
+    "scores": [
+      70.3,
+      70.3,
+      70.3,
+      70.3
+    ]
+  },
+  "roblox.com": {
+    "urls": [
+      "roblox.com",
+      "https://roblox.com",
+      "https://www.roblox.com",
+      "http://www.roblox.com/"
+    ],
+    "scores": [
+      70.3,
+      70.3,
+      70.3,
+      70.3
+    ]
+  },
+  "http://192.0.2.1/login": {
+    "score": 15.0
+  },
+  "https://google.com.evil.example/login": {
+    "score": 36.1
+  },
+  "https://google.com@account-check.example/login": {
+    "score": 37.7
+  }
+}

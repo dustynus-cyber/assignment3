@@ -1,0 +1,14 @@
+These groups describe training phishing URLs only. All their labels are 1.
+Cluster 0: 1610 URLs.
+  host_length: higher than the phishing average (1.69 standard deviations).
+  host_hyphens: higher than the phishing average (1.53 standard deviations).
+  dot_count: higher than the phishing average (1.24 standard deviations).
+Cluster 1: 10134 URLs.
+  host_length: lower than the phishing average (-0.27 standard deviations).
+  host_hyphens: lower than the phishing average (-0.24 standard deviations).
+  dot_count: lower than the phishing average (-0.20 standard deviations).
+Cluster 2: 256 URLs.
+  query_length: higher than the phishing average (5.18 standard deviations).
+  url_length: higher than the phishing average (5.13 standard deviations).
+  hyphen_count: higher than the phishing average (2.55 standard deviations).
+Inspect cluster_examples.csv before giving each group a descriptive name.

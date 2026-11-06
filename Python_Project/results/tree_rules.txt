@@ -1,0 +1,136 @@
+|--- dot_count <= 1.50
+|   |--- hyphen_count <= 2.50
+|   |   |--- common_tld <= 0.50
+|   |   |   |--- url_length <= 9.50
+|   |   |   |   |--- digit_ratio <= 0.06
+|   |   |   |   |   |--- url_length <= 7.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- url_length >  7.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- digit_ratio >  0.06
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- url_length >  9.50
+|   |   |   |   |--- path_depth <= 0.50
+|   |   |   |   |   |--- digit_ratio <= 0.01
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- digit_ratio >  0.01
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- path_depth >  0.50
+|   |   |   |   |   |--- url_length <= 23.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- url_length >  23.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |--- common_tld >  0.50
+|   |   |   |--- path_depth <= 0.50
+|   |   |   |   |--- host_hyphens <= 0.50
+|   |   |   |   |   |--- digit_ratio <= 0.01
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- digit_ratio >  0.01
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- host_hyphens >  0.50
+|   |   |   |   |   |--- host_length <= 21.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- host_length >  21.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |--- path_depth >  0.50
+|   |   |   |   |--- url_length <= 35.50
+|   |   |   |   |   |--- digit_ratio <= 0.08
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- digit_ratio >  0.08
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- url_length >  35.50
+|   |   |   |   |   |--- path_depth <= 3.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- path_depth >  3.50
+|   |   |   |   |   |   |--- class: 1
+|   |--- hyphen_count >  2.50
+|   |   |--- host_hyphens <= 2.50
+|   |   |   |--- query_length <= 84.50
+|   |   |   |   |--- hyphen_count <= 5.50
+|   |   |   |   |   |--- query_length <= 20.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- query_length >  20.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- hyphen_count >  5.50
+|   |   |   |   |   |--- url_length <= 189.00
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- url_length >  189.00
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |--- query_length >  84.50
+|   |   |   |   |--- query_length <= 141.00
+|   |   |   |   |   |--- url_length <= 254.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- url_length >  254.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- query_length >  141.00
+|   |   |   |   |   |--- class: 0
+|   |   |--- host_hyphens >  2.50
+|   |   |   |--- digit_ratio <= 0.10
+|   |   |   |   |--- host_length <= 28.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- host_length >  28.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- digit_ratio >  0.10
+|   |   |   |   |--- class: 1
+|--- dot_count >  1.50
+|   |--- host_hyphens <= 0.50
+|   |   |--- hyphen_count <= 2.50
+|   |   |   |--- url_length <= 14.50
+|   |   |   |   |--- digit_ratio <= 0.04
+|   |   |   |   |   |--- url_length <= 11.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- url_length >  11.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- digit_ratio >  0.04
+|   |   |   |   |   |--- host_length <= 13.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- host_length >  13.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |--- url_length >  14.50
+|   |   |   |   |--- url_length <= 46.50
+|   |   |   |   |   |--- digit_ratio <= 0.01
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- digit_ratio >  0.01
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- url_length >  46.50
+|   |   |   |   |   |--- common_tld <= 0.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- common_tld >  0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |--- hyphen_count >  2.50
+|   |   |   |--- url_length <= 174.50
+|   |   |   |   |--- digit_ratio <= 0.24
+|   |   |   |   |   |--- hyphen_count <= 5.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- hyphen_count >  5.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- digit_ratio >  0.24
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- url_length >  174.50
+|   |   |   |   |--- common_tld <= 0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- common_tld >  0.50
+|   |   |   |   |   |--- url_length <= 213.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- url_length >  213.50
+|   |   |   |   |   |   |--- class: 1
+|   |--- host_hyphens >  0.50
+|   |   |--- host_length <= 82.00
+|   |   |   |--- query_length <= 245.50
+|   |   |   |   |--- host_hyphens <= 1.50
+|   |   |   |   |   |--- query_length <= 17.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- query_length >  17.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- host_hyphens >  1.50
+|   |   |   |   |   |--- digit_ratio <= 0.06
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- digit_ratio >  0.06
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |--- query_length >  245.50
+|   |   |   |   |--- class: 0
+|   |   |--- host_length >  82.00
+|   |   |   |--- digit_ratio <= 0.23
+|   |   |   |   |--- class: 0
+|   |   |   |--- digit_ratio >  0.23
+|   |   |   |   |--- class: 0

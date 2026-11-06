@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+history.sqlite
+history.sqlite-*
+.session_secret
+.venv/

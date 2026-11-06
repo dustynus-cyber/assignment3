@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Link Check — Check a link</title><style>:root{font-family:Arial,Helvetica,sans-serif;color:#242629;background:#f7f8f9;font-size:14px;--line:#d9dde2;--muted:#626871}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;flex-direction:column}header{height:62px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px}a{color:inherit;text-decoration:none}a:hover{text-decoration:underline}.brand{font-size:17px;font-weight:700}nav{display:flex;gap:28px;color:#545a63}nav a[aria-current]{color:#242629;font-weight:bold}main{flex:1}.view{max-width:690px;margin:50px auto 100px}h1{font-size:25px;letter-spacing:-.02em;margin:0 0 22px}h2{font-size:14px;text-transform:uppercase;margin:0 0 16px}h3{font-size:14px;margin:0 0 5px}p{line-height:1.5;margin:0 0 12px;color:var(--muted)}.intro{text-align:center}.intro h1{font-size:40px;margin:58px 0 20px}.intro p{font-size:17px}.hero-art{width:140px;height:140px;margin:22px 0 42px}.input-row{display:flex;gap:12px}input{min-width:0;padding:13px;border:1px solid var(--line);border-radius:8px;background:#fff;font:inherit;color:inherit;width:100%}#url-input,.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}button,.export{font:inherit;cursor:pointer;border:1px solid var(--line);background:#fff;border-radius:7px;padding:11px 15px;color:#242629;font-weight:600}button:hover{background:#eef0f2}.primary{background:#242629;color:white;border-color:#242629;white-space:nowrap}.primary:hover{background:#404349}button:disabled{cursor:wait;opacity:.55}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #477dba;outline-offset:3px}.helper{font-size:13px;margin-top:12px}.section{margin-top:48px}.error{color:#b71d22;margin-top:10px}.how-row,.recent-row{border:1px solid var(--line);background:white;border-radius:12px;margin:10px 0;padding:17px;display:flex;align-items:center;gap:14px}.how-row p{margin:0}.step-icon{width:33px;height:33px;display:grid;place-items:center;border:1px solid var(--line);border-radius:8px;flex-shrink:0;background:#f7f8f9}.step-icon svg{width:21px;height:21px}.recent-row{width:100%;text-align:left;font-weight:400;gap:10px}.recent-url{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.small-date{color:var(--muted);font-size:12px;white-space:nowrap}.badge{font-size:12px;font-weight:600;border-radius:30px;padding:3px 9px;white-space:nowrap;border:1px solid}.high{background:#fce9e7;color:#bb1919;border-color:#f5c8c4}.low{background:#e7f4eb;color:#166b31;border-color:#b6d8bf}.caution{background:#fff6df;color:#825500;border-color:#f1d797}.empty{text-align:center;background:white;border:1px solid var(--line);border-radius:12px;padding:32px 20px}.loading-panel{background:white;border:1px solid var(--line);border-radius:12px;text-align:center;padding:48px 28px}.loading-panel .mono{overflow-wrap:anywhere;color:#242629}.loading-steps{padding:0;list-style:none;line-height:2.6;margin:20px 0 35px}.loading-steps li:last-child{color:#626871}progress{width:70%;height:8px;accent-color:#242629;margin:18px 0}.text-button{border:0;background:none;text-decoration:underline;color:#535a64;padding:4px}.result-panel{background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden}#risk-banner{padding:30px 24px;display:flex;align-items:center;gap:24px;border-bottom:1px solid var(--line)}#risk-banner h1{font-size:19px;line-height:1.4;margin-bottom:22px}#risk-banner p{color:inherit;margin:0}.score-block{margin-left:auto;display:flex;align-items:center;flex-direction:column;gap:9px;min-width:86px}.score-block strong{background:white;display:grid;place-items:center;border-radius:50%;width:72px;height:72px;font-size:18px}.score-block span{font-size:12px}.result-section{padding:25px 24px;border-bottom:1px solid var(--line)}.checked-url{font-size:16px;font-weight:600;color:#444a53;overflow-wrap:anywhere}.observation{display:flex;gap:14px;margin:20px 0}.observation p{margin:0}.observation .step-icon{background:#f1f2f3;border:0}.result-actions{padding:20px;display:flex;gap:10px;flex-wrap:wrap;background:#f7f8f9}ul{padding-left:19px;line-height:1.7;color:var(--muted)}li{margin-bottom:7px}details{margin-top:20px}summary{cursor:pointer;font-weight:600}dl{display:grid;grid-template-columns:1fr auto;gap:10px;color:var(--muted)}dd{margin:0;font-family:monospace;color:#242629}.action-message{margin:0;padding:0 20px 16px;font-size:13px}.action-message:empty{padding:0}.history h1{margin-bottom:24px}.counts{background:white;border:1px solid var(--line);border-radius:12px;padding:13px 16px;display:flex;gap:18px;flex-wrap:wrap;margin-bottom:24px;font-size:13px}.history-panel{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:white}.history-controls{background:#f0f2f4;padding:12px;display:flex;gap:10px;align-items:center}.history-controls input{flex:1;min-width:150px}#filters{display:flex;gap:6px;flex-wrap:wrap}#filters button{font-size:12px;padding:6px 9px;border-radius:24px}#filters [aria-pressed=true]{background:#242629;color:white;border-color:#242629}.table-scroll{overflow:auto}table{border-collapse:collapse;width:100%;text-align:left}th{font-size:11px;text-transform:uppercase;color:var(--muted);background:#f0f2f4}td,th{padding:15px 16px;border-bottom:1px solid var(--line)}td:first-child{max-width:260px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.open-result{padding:5px 8px;border:0}td .small-date{white-space:normal}.wide{width:100%;margin-top:22px}.export{display:inline-block;margin-top:22px;font-size:13px}footer{display:flex;gap:22px;align-items:center;border-top:1px solid var(--line);background:white;padding:24px 28px;font-size:12px;color:var(--muted)}footer span{margin-right:auto}.notice{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#242629;color:white;padding:16px 20px;border-radius:8px;max-width:90%;width:500px;line-height:1.5}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}[hidden]{display:none!important}@media(max-width:760px){header{padding:0 18px}nav{gap:15px;font-size:12px}.view{margin:36px 20px 65px}.intro h1{font-size:31px;margin-top:44px}.intro p{font-size:15px}.hero-art{margin-bottom:26px}.input-row{flex-direction:column}.input-row button{padding:14px}.recent-row{flex-wrap:wrap}.recent-url{flex-basis:100%}.small-date{margin-right:auto}.history-controls{flex-direction:column;align-items:stretch}.history-controls input{width:100%}td,th{padding:12px}td:first-child{max-width:160px}.result-section{padding:22px 18px}#risk-banner{padding:24px 18px;gap:10px}#risk-banner h1{font-size:17px}.score-block{min-width:76px}.counts{gap:12px}footer{padding:20px}.result-actions button{flex-grow:1}}
+
+@media(max-width:360px){header{height:auto;min-height:76px;flex-wrap:wrap;gap:12px;padding:14px 18px}nav{width:100%;justify-content:space-between;gap:8px}.intro h1{font-size:28px}.score-block strong{width:62px;height:62px}#risk-banner{align-items:flex-start}}
+</style></head>
+<body>
+<header><a class="brand" href="#home">Link Check</a><nav aria-label="Main navigation"><a href="#home">Check a link</a><a href="#history">History</a><a href="#how">How it works</a></nav></header>
+<main>
+<section id="home" class="view landing">
+<div class="intro"><h1>Not sure about a link?</h1><p>Paste it below. We read the address only — we never open the site.</p>
+<svg class="hero-art" viewBox="0 0 150 135" role="img" aria-label="A shield and padlock"><defs><linearGradient id="shield" x2="1" y2="1"><stop stop-color="#9dc4d9"/><stop offset="1" stop-color="#4e7f9e"/></linearGradient><linearGradient id="lock" x2="1"><stop stop-color="#f0d18a"/><stop offset="1" stop-color="#dba853"/></linearGradient></defs><path d="M30 28 77 9l46 19v35c0 30-22 48-46 62-26-14-47-32-47-62Z" fill="url(#shield)"/><path d="M77 9v116c24-14 46-32 46-62V28Z" fill="#547f9c" opacity=".5"/><path d="M49 65 69 84 102 46" fill="none" stroke="#b7d4e3" stroke-width="6"/><path d="M91 72V56a17 17 0 0 1 34 0v16" fill="none" stroke="#e3b35e" stroke-width="7"/><rect x="80" y="68" width="55" height="46" rx="12" fill="url(#lock)"/><circle cx="108" cy="87" r="6" fill="#a77729"/><path d="M108 89v13" stroke="#a77729" stroke-width="5"/></svg></div>
+<form id="check-form"><label class="sr-only" for="url-input">Website address</label><div class="input-row"><input id="url-input" name="url" type="text" placeholder="https://example.com/login" autocomplete="off" spellcheck="false" maxlength="4096" required><button type="submit" class="primary">Check link</button></div><p class="helper">We only analyze the URL structure. Results are saved in your local history.</p><p id="form-error" class="error" role="alert"></p></form>
+<section class="section"><h2>Recently checked</h2><div id="recent-list"></div></section>
+<section id="how" class="section"><h2>How it works</h2><div class="how-row"><span class="step-icon" data-icon="link"></span><div><h3>Paste a link</h3><p>Copy the URL you’re unsure about and paste it into the input.</p></div></div><div class="how-row"><span class="step-icon" data-icon="search"></span><div><h3>We analyze the structure</h3><p>We check the domain, path, and parameters without visiting the site.</p></div></div><div class="how-row"><span class="step-icon" data-icon="shield"></span><div><h3>You get a clear verdict</h3><p>Our trained model gives a risk estimate. Always use your own judgement too.</p></div></div></section>
+</section>
+<section id="loading" class="view" aria-label="Checking your URL" hidden><div class="loading-panel"><p id="loading-url" class="mono"></p><p>This usually takes a few seconds</p><progress aria-label="Checking the URL"></progress><ol class="loading-steps"><li>Reading the URL structure</li><li>Extracting the URL features</li><li>Running the trained model</li><li>Saving your result</li></ol><button id="cancel" class="text-button">Cancel</button></div></section>
+<section id="result" class="view" hidden><article class="result-panel"><div id="risk-banner"><div><h1 id="result-title"></h1><p id="result-subtitle"></p></div><div class="score-block"><strong id="score"></strong><span>Trust score</span></div></div><div class="result-section"><p id="result-url" class="mono checked-url"></p><p class="helper">Based on URL structure only. The site was not visited.</p></div><section class="result-section"><h2>Why we think so</h2><p id="model-explanation"></p><div id="observations"></div><p class="helper">These are URL observations, not a full explanation of the model’s decision.</p><details><summary>View extracted URL features</summary><dl id="feature-list"></dl></details></section><section class="result-section"><h2>What should I do?</h2><ul id="advice"></ul><p class="helper">The trust score is an uncalibrated model estimate. A high score does not prove a site is safe.</p></section><div class="result-actions"><button class="primary" id="another">Check another link</button><button id="recheck">Check this URL again</button><button id="report">Report this result</button><button id="copy">Copy summary</button></div><p id="action-message" class="action-message" role="status"></p></article></section>
+<section id="history" class="view history" hidden><h1>Checking History</h1><div id="history-counts" class="counts"></div><div class="history-panel"><div class="history-controls"><label class="sr-only" for="search">Filter history</label><input id="search" placeholder="Filter by URL or verdict"><div id="filters"><button data-filter="all" aria-pressed="true">All</button><button data-filter="low" aria-pressed="false">Low risk</button><button data-filter="caution" aria-pressed="false">Caution</button><button data-filter="high" aria-pressed="false">High risk</button></div></div><div class="table-scroll"><table><thead><tr><th>URL</th><th>Verdict</th><th>Score</th><th>Checked</th><th><span class="sr-only">Open</span></th></tr></thead><tbody id="history-rows"></tbody></table></div><p id="history-empty" class="empty" hidden>No links match this filter.</p></div><button id="load-more" class="wide" hidden>Load more</button><a class="export" id="export-history" href="#">Export my history as JSON</a><p class="helper">History stays in this browser when local storage is available. Export to keep a copy. Predictions are not verified training labels.</p></section>
+</main><footer><span>COS30049 · Link Check</span><button class="text-button" id="privacy">Privacy</button><a href="#how">Help</a></footer><div id="notice" role="status" class="notice" hidden></div>
+<script>const TREE={"features":["url_length","host_length","dot_count","hyphen_count","at_count","digit_ratio","path_depth","query_length","has_ip","common_tld","host_hyphens"],"left":[1,2,3,4,5,6,-1,-1,-1,10,11,-1,-1,14,-1,-1,17,18,19,-1,-1,22,-1,-1,25,26,-1,-1,29,-1,-1,32,33,34,35,-1,-1,38,-1,-1,41,42,-1,-1,-1,46,47,-1,-1,-1,51,52,53,54,55,-1,-1,58,-1,-1,61,62,-1,-1,65,-1,-1,68,69,70,-1,-1,-1,74,-1,76,-1,-1,79,80,81,82,-1,-1,85,-1,-1,-1,89,-1,-1],"right":[50,31,16,9,8,7,-1,-1,-1,13,12,-1,-1,15,-1,-1,24,21,20,-1,-1,23,-1,-1,28,27,-1,-1,30,-1,-1,45,40,37,36,-1,-1,39,-1,-1,44,43,-1,-1,-1,49,48,-1,-1,-1,78,67,60,57,56,-1,-1,59,-1,-1,64,63,-1,-1,66,-1,-1,73,72,71,-1,-1,-1,75,-1,77,-1,-1,88,87,84,83,-1,-1,86,-1,-1,-1,90,-1,-1],"feature":[2,3,9,0,5,0,-2,-2,-2,6,5,-2,-2,0,-2,-2,6,10,5,-2,-2,1,-2,-2,0,5,-2,-2,6,-2,-2,10,7,3,7,-2,-2,0,-2,-2,7,0,-2,-2,-2,5,1,-2,-2,-2,10,3,0,5,0,-2,-2,1,-2,-2,0,5,-2,-2,9,-2,-2,0,5,3,-2,-2,-2,9,-2,0,-2,-2,1,7,10,7,-2,-2,5,-2,-2,-2,5,-2,-2],"threshold":[1.5,2.5,0.5,9.5,0.0555555559694767,7.5,-2.0,-2.0,-2.0,0.5,0.01315789483487606,-2.0,-2.0,23.5,-2.0,-2.0,0.5,0.5,0.009900989942252636,-2.0,-2.0,21.5,-2.0,-2.0,35.5,0.07846153900027275,-2.0,-2.0,3.5,-2.0,-2.0,2.5,84.5,5.5,20.5,-2.0,-2.0,189.0,-2.0,-2.0,141.0,254.5,-2.0,-2.0,-2.0,0.1031746044754982,28.5,-2.0,-2.0,-2.0,0.5,2.5,14.5,0.0357142873108387,11.5,-2.0,-2.0,13.5,-2.0,-2.0,46.5,0.010869565419852734,-2.0,-2.0,0.5,-2.0,-2.0,174.5,0.23538461327552795,5.5,-2.0,-2.0,-2.0,0.5,-2.0,213.5,-2.0,-2.0,82.0,245.5,1.5,17.5,-2.0,-2.0,0.060217561200261116,-2.0,-2.0,-2.0,0.22861309349536896,-2.0,-2.0],"phishing":[0.5,0.41265386823139233,0.44899856938483546,0.5978994748687172,0.407202216066482,0.37797619047619047,0.3008130081300813,0.4225352112676056,0.8,0.627765726681128,0.5817195972114639,0.5612416107382551,0.8282828282828283,0.6863905325443787,0.9035087719298246,0.6234096692111959,0.4139119674739261,0.3309470239312743,0.3090909090909091,0.29692419472027126,0.4944649446494465,0.5276073619631901,0.4557291666666667,0.7904761904761904,0.47704280155642026,0.624031007751938,0.668724279835391,0.35784313725490197,0.3607471424588793,0.3117603550295858,0.5107587768969423,0.11359623307828134,0.09118727050183599,0.07202039515615041,0.11405835543766578,0.1038781163434903,0.34375,0.033128834355828224,0.029077117572692796,0.16666666666666666,0.5538461538461539,0.6585365853658537,0.45,0.8571428571428571,0.375,0.676923076923077,0.6,0.5238095238095238,0.6666666666666666,0.85,0.6645835837038817,0.6199546485260771,0.6461713173264114,0.3564356435643564,0.28690807799442897,0.1259259259259259,0.38392857142857145,0.9111111111111111,0.8695652173913043,0.9545454545454546,0.6664930555555556,0.7117965622792559,0.6385585585585586,0.8498641304347826,0.5393258426966292,0.7318840579710145,0.4287200832466181,0.2616407982261641,0.15447154471544716,0.11337209302325581,0.15979381443298968,0.05333333333333334,0.72,0.7439024390243902,0.5,0.9166666666666666,0.85,0.9642857142857143,0.8376318874560376,0.8586102719033233,0.8736906962415281,0.8085808580858086,0.837125748502994,0.4864864864864865,0.9565826330532213,0.9114391143911439,0.9841986455981941,0.09375,0.1568627450980392,0.35,0.03225806451612903]};
+// The trained tree is stored inside this file. No server or website request is needed.
+function parseAddress(value) {
+  if (typeof value !== 'string') throw new Error('Please paste a website address.');
+  const input = value.trim();
+  if (!input || input.length > 4096 || /[\s\x00-\x1f\\]/u.test(input)) throw new Error('Use a URL under 4,096 characters, with no spaces.');
+  const schemeMatch = input.match(/^([a-z][a-z0-9+.-]*):\/\//i);
+  const scheme = schemeMatch ? schemeMatch[1].toLowerCase() : '';
+  if (scheme && !['http','https'].includes(scheme)) throw new Error('Use an http or https website address.');
+  let rest = schemeMatch ? input.slice(schemeMatch[0].length) : input.replace(/^\/\//,'');
+  const authority = rest.split(/[/?#]/,1)[0];
+  rest = rest.slice(authority.length);
+  let fragment = '';
+  const hash = rest.indexOf('#');
+  if (hash >= 0) {fragment = rest.slice(hash+1); rest = rest.slice(0,hash);}
+  let query = '';
+  const question = rest.indexOf('?');
+  if (question >= 0) {query = rest.slice(question+1); rest = rest.slice(0,question);}
+  const at = authority.lastIndexOf('@');
+  const credentials = at >= 0 ? authority.slice(0,at+1) : '';
+  const hostPort = at >= 0 ? authority.slice(at+1) : authority;
+  let host, port = '';
+  if (hostPort.startsWith('[')) {
+    const end = hostPort.indexOf(']');
+    if (end < 0) throw new Error('Please use a valid IPv6 address.');
+    host = hostPort.slice(1,end).toLowerCase();
+    port = hostPort.slice(end+1);
+  } else {
+    const colon = hostPort.lastIndexOf(':');
+    host = (colon >= 0 ? hostPort.slice(0,colon) : hostPort).toLowerCase();
+    port = colon >= 0 ? hostPort.slice(colon) : '';
+  }
+  if (!host || (!host.includes('.') && !host.includes(':'))) throw new Error('Include a hostname, for example example.com.');
+  if (port && (!/^:\d+$/.test(port) || Number(port.slice(1)) > 65535)) throw new Error('Use a valid port number.');
+  if (host.includes(':')) {
+    try {new URL('http://['+host+']/');} catch {throw new Error('Please use a valid IPv6 address.');}
+  }
+  const parts = host.split('.');
+  const ipv4 = parts.length===4 && parts.every(part => /^(0|[1-9]\d{0,2})$/.test(part) && Number(part)<=255);
+  return {input, host, path:rest, query, fragment, credentials, port:Number(port.slice(1)) || 0, hasIP:ipv4||host.includes(':')};
+}
+function getFeatures(input) {
+  const url = parseAddress(input);
+  const host = url.host.replace(/^www\./,'');
+  let text = url.credentials + host + (url.port ? ':'+url.port : '') + url.path.replace(/\/+$/,'');
+  if (url.query) text += '?' + url.query;
+  if (url.fragment) text += '#' + url.fragment;
+  // Preserve the feature convention used by the saved v2 training model.
+  if (url.query) text += '?' + url.query;
+  if (url.fragment) text += '#' + url.fragment;
+  const chars = Array.from(text);
+  const digits = chars.filter(c => /[\p{Nd}\u00b2\u00b3\u00b9\u2070\u2074-\u2079\u2080-\u2089]/u.test(c)).length;
+  const count = (text, character) => Array.from(text).filter(c=>c===character).length;
+  return {url_length:chars.length,host_length:Array.from(host).length,dot_count:count(host,'.'),hyphen_count:count(text,'-'),at_count:count(input,'@'),digit_ratio:digits/Math.max(chars.length,1),path_depth:url.path.split('/').filter(Boolean).length,query_length:Array.from(url.query).length,has_ip:Number(url.hasIP),common_tld:Number(['com','org','net','edu','gov'].includes(host.split('.').pop())),host_hyphens:count(host,'-')};
+}
+function predictLocal(input) {
+  const features = getFeatures(input);
+  let index=0;
+  while (TREE.left[index] !== -1) {
+    const value=Math.fround(features[TREE.features[TREE.feature[index]]]);
+    index=value<=TREE.threshold[index]?TREE.left[index]:TREE.right[index];
+  }
+  const probability=TREE.phishing[index];
+  const score=Math.round(1000*(1-probability))/10;
+  const notes=[];
+  const add=(title,text)=>notes.push({title,text});
+  if(features.has_ip) add('An IP address is used','This address uses a number-based host instead of a domain name.');
+  if(features.at_count) add('An at sign is present','An @ sign can make the real destination harder to read.');
+  if(features.url_length>75) add('A long URL','This address has more than 75 characters. Check the hostname carefully.');
+  if(features.hyphen_count>2) add('Several hyphens','This URL contains more than two hyphens. This alone does not mean phishing.');
+  if(features.digit_ratio>0.2) add('Many digits','More than 20% of the characters are digits. Some normal links also use many digits.');
+  return {id:'check-'+Date.now()+'-'+Math.random().toString(36).slice(2),url:input.trim(),model_version:'url-tree-v2',prediction:probability>0.5?'phishing':'benign',phishing_probability:Math.round(probability*10000)/10000,trust_score:score,features,observations:notes,risk:score<40?'high':score<70?'caution':'low',checked_at:new Date().toISOString(),reported:false};
+}
+const HISTORY_KEY='link-check-offline-v2';
+function saveHistory() {
+  try {localStorage.setItem(HISTORY_KEY,JSON.stringify(historyItems));}
+  catch {$('notice').textContent='This browser cannot save history here. Results work for this session; export them to keep a copy.';$('notice').hidden=false;}
+}
+
+// Simple page changes for the offline website.
+const $ = (id) => document.getElementById(id);
+let historyItems = [];
+let currentResult = null;
+let filter = 'all';
+let visibleRows = 9;
+let requestNumber = 0;
+let controller = null;
+const labels = {high: 'High risk', caution: 'Be careful', low: 'Low risk'};
+const iconPaths = {link:'M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-2 2M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l2-2',search:'M21 21l-5-5M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0',shield:'M12 2 3 6v6c0 5 9 10 9 10s9-5 9-10V6ZM8 12l3 3 5-6'};
+function icon(name) {return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${iconPaths[name] || iconPaths.search}"/></svg>`;}
+document.querySelectorAll('[data-icon]').forEach(el => el.innerHTML = icon(el.dataset.icon));
+
+// Input URLs are always added as text, never as HTML or clickable links.
+function element(tag, text, className) {
+  const el = document.createElement(tag);
+  if (text !== undefined) el.textContent = text;
+  if (className) el.className = className;
+  return el;
+}
+function badge(item) {return element('span', labels[item.risk], `badge ${item.risk}`);}
+function checkedTime(item) {return new Date(item.checked_at).toLocaleString([], {dateStyle:'short',timeStyle:'short'});}
+function showPage(name) {
+  document.querySelectorAll('.view').forEach(el => el.hidden = el.id !== name);
+  document.querySelectorAll('nav a').forEach(a => {
+    if (a.hash === '#' + name) a.setAttribute('aria-current', 'page');
+    else a.removeAttribute('aria-current');
+  });
+  window.scrollTo(0, 0);
+  // Move keyboard focus to the new page so the result is announced.
+  const target = document.getElementById(name).querySelector('h1') || document.getElementById(name);
+  target.setAttribute('tabindex', '-1');
+  target.focus({preventScroll:true});
+}
+function route() {
+  const hash = location.hash.slice(1) || 'home';
+  if (hash === 'history') {showPage('history'); renderHistory();}
+  else if (hash === 'result' && currentResult) {showPage('result');}
+  else {showPage('home'); if (hash === 'how') $('how').scrollIntoView({behavior:'auto'});}
+}
+window.addEventListener('hashchange', route);
+async function loadHistory() {
+  try {historyItems = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]'); if (!Array.isArray(historyItems)) historyItems=[];}
+  catch {historyItems=[];}
+  renderRecent(); renderHistory();
+}
+function openResult(item) {
+  currentResult = item;
+  const titles = {high:'High risk — we’d avoid this one',caution:'Be careful with this link',low:'Low risk — still check before opening'};
+  $('result-title').textContent = titles[item.risk];
+  $('risk-banner').className = item.risk;
+  $('score').textContent = `${item.trust_score}/100`;
+  $('result-subtitle').textContent = `Trust score ${item.trust_score}/100 · ${item.observations.length} URL observations`;
+  $('result-url').textContent = item.url;
+  $('model-explanation').textContent = `The trained model classified this URL as ${item.prediction}. Its estimated phishing score is ${(item.phishing_probability * 100).toFixed(1)}%. ${item.model_version === 'url-tree-v2' ? '' : 'This is a saved result from the older model. Check this URL again for the updated score.'}`;
+  $('observations').replaceChildren();
+  if (!item.observations.length) $('observations').append(element('p','No extra structural warning signs were found by our simple checks. The model can still make mistakes.'));
+  item.observations.forEach(note => {
+    const row = element('div', undefined, 'observation');
+    const symbol = element('span',undefined,'step-icon'); symbol.innerHTML = icon('search');
+    const text = element('div'); text.append(element('h3',note.title),element('p',note.text));
+    row.append(symbol,text); $('observations').append(row);
+  });
+  $('feature-list').replaceChildren();
+  Object.entries(item.features).forEach(([name,value]) => {
+    $('feature-list').append(element('dt',name.replaceAll('_',' ')),element('dd',Number.isInteger(value)?value:Number(value).toFixed(3)));
+  });
+  const advice = item.risk === 'low' ? ['Check the real hostname before opening the link.','Use an official app or a known bookmark for sensitive accounts.','Do not rely on this score alone.'] : ['Avoid opening the link until you confirm who sent it.','Do not enter passwords or personal information.','Use the organisation’s official app or a known bookmark instead.'];
+  $('advice').replaceChildren(...advice.map(text => element('li',text)));
+  $('report').disabled = item.reported;
+  $('report').textContent = item.reported ? 'Saved for review' : 'Report this result';
+  $('action-message').textContent = '';
+  location.hash = 'result'; showPage('result');
+}
+function renderRecent() {
+  $('recent-list').replaceChildren();
+  if (!historyItems.length) {$('recent-list').append(element('p','No links checked yet. Paste one above to get started.','empty'));return;}
+  historyItems.slice(0,3).forEach(item => {
+    const row = element('button',undefined,'recent-row');
+    row.append(element('span',item.url,'recent-url mono'),element('span',checkedTime(item),'small-date'),badge(item),element('span','›'));
+    row.addEventListener('click',()=>openResult(item)); $('recent-list').append(row);
+  });
+}
+function renderHistory() {
+  $('history-counts').replaceChildren();
+  $('history-counts').append(element('span',`${historyItems.length} links checked`));
+  ['high','low','caution'].forEach(risk => $('history-counts').append(element('span',`${historyItems.filter(i=>i.risk===risk).length} ${labels[risk].toLowerCase()}`)));
+  const search = $('search').value.toLowerCase();
+  const items = historyItems.filter(i => (filter==='all'||i.risk===filter) && (i.url.toLowerCase().includes(search)||labels[i.risk].toLowerCase().includes(search)));
+  $('history-rows').replaceChildren();
+  items.slice(0,visibleRows).forEach(item => {
+    const row = element('tr'); const url = element('td',item.url,'mono'); url.title=item.url;
+    const verdict = element('td');verdict.append(badge(item));
+    const button = element('button','›','open-result');button.setAttribute('aria-label',`Open result for ${item.url}`);button.addEventListener('click',()=>openResult(item));
+    const action = element('td');action.append(button);
+    row.append(url,verdict,element('td',`${item.trust_score}/100`),element('td',checkedTime(item),'small-date'),action);$('history-rows').append(row);
+  });
+  $('history-empty').hidden=items.length>0;
+  $('history-empty').textContent=historyItems.length?'No links match this filter.':'No links checked yet. Paste one on the Check a link page.';
+  $('load-more').hidden=items.length<=visibleRows;
+}
+$('search').addEventListener('input',()=>{visibleRows=9;renderHistory();});
+$('filters').addEventListener('click',event=>{
+  const button=event.target.closest('[data-filter]');if(!button)return;
+  filter=button.dataset.filter;visibleRows=9;
+  document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));renderHistory();
+});
+$('load-more').addEventListener('click',()=>{visibleRows+=9;renderHistory();});
+$('check-form').addEventListener('submit',async event=>{
+  event.preventDefault(); $('form-error').textContent='';
+  const url=$('url-input').value.trim();
+  if(!url){$('form-error').textContent='Please paste a website address.';return;}
+  const number=++requestNumber;controller=new AbortController();
+  $('loading-url').textContent=url;showPage('loading');
+  try{
+    // Yield one frame for the loading view, then run the trained tree locally.
+    await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+    if(number!==requestNumber)return;
+    const result=predictLocal(url);
+    if(number!==requestNumber)return;
+
+    historyItems.unshift(result);saveHistory();renderRecent();renderHistory();openResult(result);
+  }catch(error){
+    if(number!==requestNumber||error.name==='AbortError')return;
+    showPage('home');$('form-error').textContent=error.message;$('url-input').focus();
+  }
+});
+$('cancel').addEventListener('click',()=>{
+  ++requestNumber;controller?.abort();showPage('home');$('url-input').focus();
+  // A request already processed by the server can still appear in history.
+  loadHistory().catch(()=>{});
+});
+$('another').addEventListener('click',()=>{location.hash='home';showPage('home');$('url-input').focus();});
+$('report').addEventListener('click',async()=>{
+  if(!currentResult)return;
+  $('report').disabled=true;
+  try{
+    currentResult.reported=true;$('report').textContent='Saved for review';saveHistory();$('action-message').textContent='Saved for local review. No report was sent to another organisation.';
+  }catch(error){$('report').disabled=false;$('action-message').textContent=error.message;}
+});
+$('copy').addEventListener('click',async()=>{
+  if(!currentResult)return;
+  try{await navigator.clipboard.writeText(`Link Check: ${labels[currentResult.risk]}\n${currentResult.url}\nTrust score: ${currentResult.trust_score}/100\nModel estimate only; the website was not visited.`);$('action-message').textContent='Summary copied.';}
+  catch{$('action-message').textContent='Copy is unavailable in this browser. Select the result text to copy it.';}
+});
+$('privacy').addEventListener('click',()=>{
+  $('notice').textContent='This offline file stores results in this browser when local storage is available. Nothing is sent to a server. History may not persist in private mode or after moving the file. Export results to keep a copy.';
+  $('notice').hidden=!$('notice').hidden;
+});
+route();loadHistory().catch(error=>{$('form-error').textContent=error.message;});
+
+$('recheck').addEventListener('click',()=>{if(currentResult){$('url-input').value=currentResult.url;$('check-form').requestSubmit();}});
+
+$('export-history').addEventListener('click',event=>{
+  event.preventDefault();
+  const url=URL.createObjectURL(new Blob([JSON.stringify(historyItems,null,2)],{type:'application/json'}));
+  const download=document.createElement('a');download.href=url;download.download='link-check-history.json';download.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+</script></body></html>

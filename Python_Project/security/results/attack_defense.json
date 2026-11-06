@@ -1,0 +1,81 @@
+{
+  "trials_per_budget": 30,
+  "part1_real_data": {
+    "baseline_model_recall": 0.7303333333333333,
+    "full_evasion_model_recall": 0.5383333333333333,
+    "full_evasion_defended_recall": 0.5383333333333333,
+    "recall_lost_to_attack": 0.19199999999999995,
+    "recall_recovered_by_defense": 0.0,
+    "cost": {
+      "model_false_positive_rate": 0.32033333333333336,
+      "defended_false_positive_rate": 0.32566666666666666,
+      "added_false_positives": 0.005333333333333301,
+      "defense_runtime_ms_per_url": 0.2244
+    },
+    "curve_model_mean": {
+      "0": 0.7303333333333333,
+      "1": 0.7007666666666668,
+      "2": 0.6708111111111111,
+      "3": 0.6444444444444444,
+      "4": 0.6211888888888889,
+      "5": 0.5981555555555556,
+      "6": 0.5755333333333332,
+      "7": 0.5561333333333334,
+      "8": 0.5383333333333333
+    },
+    "curve_defended_mean": {
+      "0": 0.732,
+      "1": 0.7027111111111112,
+      "2": 0.6727333333333334,
+      "3": 0.6467999999999999,
+      "4": 0.6233,
+      "5": 0.6005,
+      "6": 0.5773333333333334,
+      "7": 0.5570444444444446,
+      "8": 0.5383333333333333
+    }
+  },
+  "part2_impersonation_suite": {
+    "impersonation_count": 95,
+    "benign_count": 36,
+    "model_recall": 0.2631578947368421,
+    "defense_recall": 0.7473684210526316,
+    "defended_recall": 0.7473684210526316,
+    "brand_visible_recall": 0.968421052631579,
+    "false_positives": {
+      "model": 0.0,
+      "token_defense": 0.0,
+      "brand_visible_defense": 0.16666666666666666
+    },
+    "by_pattern": [
+      {
+        "pattern": "concatenation",
+        "count": 24,
+        "model_recall": 0.0,
+        "defense_recall": 0.0,
+        "brand_visible_recall": 1.0
+      },
+      {
+        "pattern": "hyphen",
+        "count": 24,
+        "model_recall": 0.08333333333333333,
+        "defense_recall": 1.0,
+        "brand_visible_recall": 1.0
+      },
+      {
+        "pattern": "punycode",
+        "count": 23,
+        "model_recall": 1.0,
+        "defense_recall": 1.0,
+        "brand_visible_recall": 1.0
+      },
+      {
+        "pattern": "typosquat",
+        "count": 24,
+        "model_recall": 0.0,
+        "defense_recall": 1.0,
+        "brand_visible_recall": 0.875
+      }
+    ]
+  }
+}

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Link Check — Check a link</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <!-- defense.js is the client-side impersonation layer; it loads before app.js. -->
+  <script defer src="{{ url_for('static', filename='defense.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+<header class="topbar" id="topbar">
+  <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true"></span>Link Check</a>
+  <nav id="nav" aria-label="Main navigation">
+    <a href="#home">Check a link</a>
+    <a href="#history">History</a>
+    <a href="#how">How it works</a>
+    <span class="indicator" id="nav-indicator" aria-hidden="true"></span>
+  </nav>
+</header>
+
+<main>
+<!-- ============ Check a link ============ -->
+<section id="home" class="view">
+  <div class="hero">
+    <h1 data-seq style="--i:0">Not sure about a link?<span>Check it before you click.</span></h1>
+    <p class="lede" data-seq style="--i:1">Paste it below. We read the address only — we never open the site.</p>
+  </div>
+
+  <form id="check-form" class="checker" data-seq style="--i:2">
+    <label class="sr-only" for="url-input">Website address</label>
+    <div class="field" id="field">
+      <input id="url-input" name="url" type="text" placeholder="https://example.com/login"
+             autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="4096" required>
+      <button type="submit" class="btn btn-primary">Check link</button>
+    </div>
+
+    <!-- Live, client-side preview: who really owns this URL + impersonation signal. No network. -->
+    <div class="live" id="live" data-open="false">
+      <div class="live-inner">
+        <div class="live-card">
+          <p class="anatomy-label">Real destination</p>
+          <p id="live-anatomy" class="anatomy"></p>
+          <div id="live-signal" class="signal" role="status" hidden></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="examples">Try
+      <button type="button" data-example="paypa1.com">paypa1.com</button>
+      <button type="button" data-example="https://paypal.com@account-review.net/login">paypal.com@account-review.net</button>
+      <button type="button" data-example="https://www.paypal.com/signin">paypal.com/signin</button>
+    </p>
+    <p id="form-error" class="error" role="alert"></p>
+  </form>
+
+  <section class="block">
+    <h2>Recently checked</h2>
+    <div id="recent-list" class="list"></div>
+  </section>
+
+  <section id="how" class="block">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><span class="num">01</span><h3>Paste a link</h3><p>Copy the URL you’re unsure about. We never visit it.</p></li>
+      <li><span class="num">02</span><h3>Two layers read it</h3><p>A trained model reads the structure; an impersonation layer looks for brand look-alikes.</p></li>
+      <li><span class="num">03</span><h3>You see who owns it</h3><p>The real domain is highlighted, with a risk estimate and the reasons behind it.</p></li>
+    </ol>
+  </section>
+</section>
+
+<!-- ============ Loading (only shown if the check takes a moment) ============ -->
+<section id="loading" class="view" aria-label="Checking your URL" hidden>
+  <div class="scan">
+    <p class="scan-label">Checking</p>
+    <p id="loading-url" class="scan-url"></p>
+    <ol class="scan-steps">
+      <li style="--i:0">Reading the URL structure</li>
+      <li style="--i:1">Extracting the URL features</li>
+      <li style="--i:2">Running the trained model</li>
+      <li style="--i:3">Saving your result</li>
+    </ol>
+    <button id="cancel" class="link-button" type="button">Cancel</button>
+  </div>
+</section>
+
+<!-- ============ Result ============ -->
+<section id="result" class="view" hidden>
+  <article class="result" id="result-card">
+    <header class="verdict">
+      <div class="ring" aria-hidden="true">
+        <svg viewBox="0 0 80 80"><circle class="ring-track" cx="40" cy="40" r="34"/><circle id="ring-value" class="ring-value" cx="40" cy="40" r="34"/></svg>
+        <div class="ring-center"><strong id="score">0</strong><span>trust</span></div>
+      </div>
+      <div class="verdict-text">
+        <p id="verdict-word" class="verdict-word"></p>
+        <h1 id="result-title"></h1>
+        <p id="result-subtitle"></p>
+      </div>
+    </header>
+
+    <div class="url-block">
+      <p class="anatomy-label">Real destination</p>
+      <p id="result-anatomy" class="anatomy anatomy-lg"></p>
+      <p id="result-url" class="full-url"></p>
+      <p class="helper">Based on the URL only. The site was not visited.</p>
+    </div>
+
+    <div class="layers">
+      <section class="layer" id="layer-model">
+        <p class="layer-kicker">Layer 1 · Structural model</p>
+        <p id="model-verdict" class="layer-verdict"></p>
+        <p id="model-explanation"></p>
+        <div id="observations" class="obs"></div>
+        <details>
+          <summary>View extracted URL features</summary>
+          <dl id="feature-list"></dl>
+        </details>
+      </section>
+      <section class="layer" id="layer-imp">
+        <p class="layer-kicker">Layer 2 · Impersonation defence</p>
+        <p id="imp-verdict" class="layer-verdict"></p>
+        <p id="imp-explanation"></p>
+        <div id="impersonation-list" class="obs"></div>
+      </section>
+    </div>
+
+    <section class="advice-block">
+      <h2>What should I do?</h2>
+      <ul id="advice"></ul>
+      <p class="helper">The trust score is an uncalibrated model estimate. A high score does not prove a site is safe.</p>
+    </section>
+
+    <div class="result-actions">
+      <button class="btn btn-primary" id="another" type="button">Check another link</button>
+      <button class="btn" id="recheck" type="button">Check again</button>
+      <button class="btn" id="copy" type="button">Copy summary</button>
+      <button class="link-button" id="report" type="button">Report this result</button>
+    </div>
+    <p id="action-message" class="action-message" role="status"></p>
+  </article>
+</section>
+
+<!-- ============ History ============ -->
+<section id="history" class="view" hidden>
+  <h1>History</h1>
+  <div id="history-counts" class="stats"></div>
+  <div class="history-panel">
+    <div class="history-controls">
+      <label class="sr-only" for="search">Filter history</label>
+      <input id="search" class="search" placeholder="Search URLs">
+      <div id="filters" class="tabs" role="group" aria-label="Filter by verdict">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="high" aria-pressed="false">High risk</button>
+        <button type="button" data-filter="caution" aria-pressed="false">Caution</button>
+        <button type="button" data-filter="low" aria-pressed="false">Low risk</button>
+        <span class="indicator" id="filter-indicator" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>URL</th><th>Verdict</th><th>Score</th><th>Checked</th><th><span class="sr-only">Open</span></th></tr></thead>
+        <tbody id="history-rows"></tbody>
+      </table>
+    </div>
+    <p id="history-empty" class="empty" hidden>No links match this filter.</p>
+  </div>
+  <button id="load-more" class="btn wide" type="button" hidden>Load more</button>
+  <div class="history-foot">
+    <a class="link-button" href="/api/export">Export history as JSON</a>
+    <p class="helper">History belongs to this browser session on this local app. Predictions are not verified training labels.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span>COS30049 · Link Check</span>
+  <button class="link-button" id="privacy" type="button">Privacy</button>
+  <a href="#how">Help</a>
+</footer>
+<div id="notice" role="status" class="notice" hidden></div>
+</body>
+</html>
