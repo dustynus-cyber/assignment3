@@ -157,7 +157,7 @@ benign set — see `results/impersonation_recovery.png`.
 |---|---|
 | Added false positives on real benign URLs | **+0.5pp** (0.320 → 0.326) |
 | False positives on the controlled benign set | **0.0** |
-| Runtime per URL | **0.23 ms** (pure string ops, no network) |
+| Runtime per URL | **0.156 ms** (pure string ops, no network) |
 
 The defence is cheap: sub-millisecond, no model retraining, and it only *adds*
 detections, so it can never lower the model's own recall.

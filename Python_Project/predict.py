@@ -6,12 +6,12 @@ import joblib
 from features import make_features, get_host
 
 ROOT = Path(__file__).resolve().parent
+saved = joblib.load(ROOT / 'models/classifier.joblib')
 
 
 def predict_url(url):
     if not url.strip() or any(c.isspace() for c in url) or not get_host(url):
         raise ValueError('Please enter a URL with a hostname and no spaces.')
-    saved = joblib.load(ROOT / 'models/classifier.joblib')
     features = make_features([url])[saved['features']]
     model = saved['model']
     prediction = int(model.predict(features)[0])
