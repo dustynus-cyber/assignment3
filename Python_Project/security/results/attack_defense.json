@@ -10,7 +10,7 @@
       "model_false_positive_rate": 0.32033333333333336,
       "defended_false_positive_rate": 0.32566666666666666,
       "added_false_positives": 0.005333333333333301,
-      "defense_runtime_ms_per_url": 0.2244
+      "defense_runtime_ms_per_url": 0.1561
     },
     "curve_model_mean": {
       "0": 0.7303333333333333,
